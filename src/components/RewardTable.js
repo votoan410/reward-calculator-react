@@ -1,44 +1,12 @@
 import { useState, useEffect } from "react";
-export default function RewardTable() {
-  const endpoint = "http://localhost:3000/transactions";
+import calculateRewardPoints from "../utils/pointsCalculate";
 
-  const [transactionData, setTransactionData] = useState([]);
+export default function RewardTable(props) {
   const [totalPoints, setTotalPoints] = useState({});
-  const [loading, setLoading] = useState(false);
 
-  // fetch data when the page just loaded
-  useEffect(() => {
-    setLoading(true);
-    fetch(endpoint)
-      .then((response) => response.json())
-      .then((jsonData) => {
-        setTransactionData(jsonData);
-        setLoading(false);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
-
-  const calculateRewardPoints = (amount) => {
-    if (amount >= 50 && amount <= 100) {
-      return amount - 50;
-    } else if (amount > 100) {
-      return 2 * (amount - 100) + 50;
-    }
-    return 0;
-  };
+  const { transactionData, loading } = props;
 
   useEffect(() => {
-    // sort by date javascript
-    if (transactionData) {
-      const sortedByDate = transactionData.sort(
-        (a, b) => new Date(a.date) - new Date(b.date)
-      );
-      setTransactionData(sortedByDate);
-    }
-    // map total pays to user
     let userTotalPay = {};
     if (transactionData) {
       // map user to their respective total pay
@@ -60,40 +28,53 @@ export default function RewardTable() {
 
   return (
     <>
-      <table>
-        <tr>
-          <th>user Id</th>
-          <th> Transaction Date</th>
-          <th> Payment Value</th>
-
-          <th> Calculated Rewards</th>
-        </tr>
-        {transactionData.length > 0
-          ? transactionData.map((transaction) => (
+      {loading ? (
+        <div>Table is waiting for data...</div>
+      ) : (
+        <>
+          <table data-testid="table">
+            <thead>
               <tr>
-                <td>{transaction.userId}</td>
-                <td>{transaction.date}</td>
-                <td>${transaction.value}</td>
-                <td>{calculateRewardPoints(transaction.value)}</td>
+                <th>user Id</th>
+                <th> Transaction Date</th>
+                <th className="table__header-green"> Payment Value $$$</th>
+                <th className="table__header-yellow"> Calculated Rewards</th>
               </tr>
-            ))
-          : null}
-      </table>
-
-      <table>
-        <tr>
-          <th>user Id</th>
-          <th> Total Calculated Reward Points</th>
-        </tr>
-        {Object.keys(totalPoints).length > 0
-          ? Object.keys(totalPoints).map((entry) => (
+            </thead>
+            <tbody>
+              {transactionData.map((transaction) => (
+                <tr>
+                  <td>{transaction.userId}</td>
+                  <td>
+                    {new Date(transaction.date).toDateString()}{" "}
+                    {new Date(transaction.date).toTimeString()}
+                  </td>
+                  <td>${transaction.value}</td>
+                  <td>{calculateRewardPoints(transaction.value)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <table data-testid="table">
+            <thead>
               <tr>
-                <td>{entry}</td>
-                <td>{totalPoints[entry]}</td>
+                <th>User Id</th>
+                <th className="table__header-yellow">
+                  Total Calculated Reward Points
+                </th>
               </tr>
-            ))
-          : null}
-      </table>
+            </thead>
+            <tbody>
+              {Object.keys(totalPoints).map((entry) => (
+                <tr>
+                  <td>{entry}</td>
+                  <td>{totalPoints[entry]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      )}
     </>
   );
 }

@@ -3,12 +3,13 @@
 The core idea of this application is that there will be a table that displays the users and their
 calculated reward points
 
-The data is fetched from static data in json-server (there is instruction on starting the json-server bellow)
+The data is fetched from static data in json-server hosted LOCALLY on PORT 3000
+(there is instruction on starting the json-server bellow)
 
 # How to start the json-server
 
 This project has a mock json-server for data fetching.\
-to start it, run `json-server --watch db.json`
+to start it, run `npm run server` or `json-server --watch db.json`
 
 # Getting Started with Create React App
 

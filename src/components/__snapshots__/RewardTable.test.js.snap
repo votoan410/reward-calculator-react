@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reward Table Should match the snapshot 1`] = `
+<DocumentFragment>
+  <table
+    data-testid="table"
+  >
+    <thead>
+      <tr>
+        <th>
+          user Id
+        </th>
+        <th>
+           Transaction Date
+        </th>
+        <th
+          class="table__header-green"
+        >
+           Payment Value $$$
+        </th>
+        <th
+          class="table__header-yellow"
+        >
+           Calculated Rewards
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          Mon Jan 11 2021 06:22:49 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $50
+        </td>
+        <td>
+          0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          Fri Jan 08 2021 22:00:30 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $10
+        </td>
+        <td>
+          0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          Sat Jan 09 2021 22:28:41 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $100
+        </td>
+        <td>
+          50
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          Thu Jan 07 2021 01:49:13 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $120
+        </td>
+        <td>
+          90
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Fri Jan 15 2021 14:34:20 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $100
+        </td>
+        <td>
+          50
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Wed Feb 17 2021 11:47:47 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $500
+        </td>
+        <td>
+          850
+        </td>
+      </tr>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          Sat Jan 02 2021 18:57:37 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $36
+        </td>
+        <td>
+          0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Fri Feb 19 2021 15:37:58 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $49
+        </td>
+        <td>
+          0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          Sat Mar 27 2021 14:29:15 GMT-0500 (Central Daylight Time)
+        </td>
+        <td>
+          $35
+        </td>
+        <td>
+          0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          Sun Mar 21 2021 10:37:09 GMT-0500 (Central Daylight Time)
+        </td>
+        <td>
+          $50
+        </td>
+        <td>
+          0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          Thu Mar 11 2021 07:02:40 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $45
+        </td>
+        <td>
+          0
+        </td>
+      </tr>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          Thu Mar 04 2021 22:43:01 GMT-0600 (Central Standard Time)
+        </td>
+        <td>
+          $99
+        </td>
+        <td>
+          49
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table
+    data-testid="table"
+  >
+    <thead>
+      <tr>
+        <th>
+          User Id
+        </th>
+        <th
+          class="table__header-yellow"
+        >
+          Total Calculated Reward Points
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          340
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          1418
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          680
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
