@@ -1,3 +1,15 @@
+# A little bit about the application
+
+The core idea of this application is that there will be a table that displays the users and their
+calculated reward points
+
+The data is fetched from static data in json-server (there is instruction on starting the json-server bellow)
+
+# How to start the json-server
+
+This project has a mock json-server for data fetching.\
+to start it, run `json-server --watch db.json`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
