@@ -11,19 +11,21 @@ export default function RewardTable(props) {
     if (transactionData) {
       // map user to their respective total pay
       transactionData.forEach((transaction) => {
+        // add user and current points to the new object
         if (!userTotalPay.hasOwnProperty(transaction.userId)) {
-          userTotalPay[transaction.userId] = transaction.value;
+          userTotalPay[transaction.userId] = calculateRewardPoints(
+            transaction.value
+          );
+        } 
+        // if the user already exists within the new object, then just accumulate the point
+        else {
+          userTotalPay[transaction.userId] += calculateRewardPoints(
+            transaction.value
+          );
         }
-        userTotalPay[transaction.userId] += transaction.value;
       });
     }
-    if (userTotalPay) {
-      let totalPointesPerUser = {};
-      for (let entry in userTotalPay) {
-        totalPointesPerUser[entry] = calculateRewardPoints(userTotalPay[entry]);
-      }
-      setTotalPoints(totalPointesPerUser);
-    }
+    setTotalPoints(userTotalPay);
   }, [transactionData]);
 
   return (
