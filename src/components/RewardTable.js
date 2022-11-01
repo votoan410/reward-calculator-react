@@ -42,8 +42,8 @@ export default function RewardTable(props) {
               </tr>
             </thead>
             <tbody>
-              {transactionData.map((transaction) => (
-                <tr>
+              {transactionData.map((transaction, idx) => (
+                <tr key={idx}>
                   <td>{transaction.userId}</td>
                   <td>
                     {new Date(transaction.date).toDateString()}{" "}
@@ -65,8 +65,8 @@ export default function RewardTable(props) {
               </tr>
             </thead>
             <tbody>
-              {Object.keys(totalPoints).map((entry) => (
-                <tr>
+              {Object.keys(totalPoints).map((entry, idx) => (
+                <tr key={idx}>
                   <td>{entry}</td>
                   <td>{totalPoints[entry]}</td>
                 </tr>
