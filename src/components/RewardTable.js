@@ -43,6 +43,8 @@ export default function RewardTable(props) {
             </thead>
             <tbody>
               {transactionData.map((transaction, idx) => (
+                // use index as key in this case because that is the only stable and unique data
+                // for the current application
                 <tr key={idx}>
                   <td>{transaction.userId}</td>
                   <td>
@@ -65,8 +67,9 @@ export default function RewardTable(props) {
               </tr>
             </thead>
             <tbody>
-              {Object.keys(totalPoints).map((entry, idx) => (
-                <tr key={idx}>
+              {/* the USER ID will be used as key in here since it will be unique in this case */}
+              {Object.keys(totalPoints).map((entry) => (
+                <tr key={entry}>
                   <td>{entry}</td>
                   <td>{totalPoints[entry]}</td>
                 </tr>
