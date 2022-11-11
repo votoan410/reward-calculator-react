@@ -17,11 +17,9 @@ function App() {
     fetchTransactions()
       .then((jsonData) => {
         setTransactionData(jsonData);
-        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false);
       })
       .finally(() => {
         setLoading(false);
